@@ -53,6 +53,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - run: docker images
+
       - run: docker run --privileged -d --name isucon-itamae_app_1 isucon-itamae:latest /sbin/init
 
       - run: bundle exec rake test:itamae
