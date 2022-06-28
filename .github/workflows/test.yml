@@ -19,6 +19,9 @@ on:
       - "**.md"
       - ".github/dependabot.yml"
 
+env:
+  XBUILD_RUBY_VERSION: 3.2.0-dev
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -100,13 +103,16 @@ jobs:
           bundler-cache: true
 
       - run: .github/workflows/build_ruby.sh
-        env:
-          XBUILD_RUBY_VERSION: 3.2.0-dev
 
       - name: Print build log when build is failed
         run:  cat /tmp/*.log
         if: "! success()"
         continue-on-error: true
+
+      - name: Whether YJIT is enabled
+        run: |
+          set -xe
+          /home/isucon/local/ruby/versions/${XBUILD_RUBY_VERSION}/bin/ruby --yjit --version | grep "+YJIT"
 
       - name: Slack Notification (not success)
         uses: lazy-actions/slatify@master
