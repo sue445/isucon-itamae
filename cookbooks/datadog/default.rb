@@ -2,7 +2,8 @@ node.reverse_merge!(
   datadog: {
     mysql: {
       dbm: false
-    }
+    },
+    integrations: {}
   }
 )
 
