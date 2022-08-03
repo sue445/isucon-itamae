@@ -274,7 +274,7 @@ instances:
     ## @param dbm - boolean - optional - default: false
     ## Set to `true` enable Database Monitoring.
     #
-    dbm: true
+    dbm: <%= node[:datadog][:mysql][:dbm] %>
 
     ## Configure collection of query metrics
     #

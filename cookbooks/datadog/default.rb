@@ -1,3 +1,11 @@
+node.reverse_merge!(
+  datadog: {
+    mysql: {
+      dbm: false
+    }
+  }
+)
+
 if node[:datadog]
   include_recipe "./enabled"
 else

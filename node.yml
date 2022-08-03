@@ -76,6 +76,9 @@ datadog:
   integrations:
     datadog-puma: 1.2.0 # https://github.com/DataDog/integrations-extras/blob/master/puma/CHANGELOG.md
 
+  mysql:
+    dbm: false
+
 datadog_sidekiq:
   # https://github.com/feedforce/datadog-sidekiq/releases のtagを入れる
   version: v0.0.10
