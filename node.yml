@@ -37,11 +37,11 @@ git:
 # インストールするパッケージの一覧(apt推奨)
 packages:
   - git
-  - wget
   - htop
-  - tmux
-  - tig
   - redis-server
+  - tig
+  - tmux
+  - wget
 
 services:
   # この言語の参照実装のみ有効化する
