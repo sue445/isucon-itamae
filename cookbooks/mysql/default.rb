@@ -123,6 +123,10 @@ end
 # @param sql
 # @return [Array<Array<String>>]
 def find_by_sql(sql)
+  # FIXME: find_by_sqlはitamaeのレシピ解析時に実行されるため、dry run前にファイルが存在しないとエラーになる
+  my_cnf = "/root/.my.cnf"
+  run_command("cp /etc/mysql/debian.cnf #{my_cnf} && chown root:root #{my_cnf} && chmod 644 #{my_cnf}")
+
   result = run_command(%Q(mysql -B -N --execute="#{sql}"))
   stdout = result.stdout.strip
 
