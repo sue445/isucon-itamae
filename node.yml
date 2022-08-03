@@ -38,6 +38,7 @@ git:
 packages:
   - git
   - htop
+  - libmysqlclient-dev # mysql2のbuildに必要
   - redis-server
   - tig
   - tmux
