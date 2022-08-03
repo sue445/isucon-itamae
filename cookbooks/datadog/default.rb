@@ -1,5 +1,6 @@
 node.reverse_merge!(
   datadog: {
+    enabled: false,
     mysql: {
       dbm: false
     },
@@ -7,7 +8,7 @@ node.reverse_merge!(
   }
 )
 
-if node[:datadog]
+if node[:datadog][:enabled]
   include_recipe "./enabled"
 else
   include_recipe "./disabled"
@@ -24,7 +25,7 @@ end
 template "/etc/datadog-agent/datadog.yaml" do
   mode "644"
 
-  if node[:datadog]
+  if node[:datadog][:enabled]
     notifies :restart, "service[datadog-agent]"
   end
 end
@@ -44,7 +45,7 @@ end
   template "/etc/datadog-agent/conf.d/#{name}/conf.yaml" do
     mode "644"
 
-    if node[:datadog]
+    if node[:datadog][:enabled]
       notifies :restart, "service[datadog-agent]"
     end
   end
