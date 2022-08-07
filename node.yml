@@ -78,7 +78,7 @@ datadog:
     datadog-puma: 1.2.0 # https://github.com/DataDog/integrations-extras/blob/master/puma/CHANGELOG.md
 
   mysql:
-    dbm: false
+    dbm: false # NOTE: Database monitoringは有償(1ホスト辺り月84ドル)なので素振りでは無効化しておく
 
 datadog_sidekiq:
   # https://github.com/feedforce/datadog-sidekiq/releases のtagを入れる
