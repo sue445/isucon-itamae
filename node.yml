@@ -43,6 +43,7 @@ packages:
   - tig
   - tmux
   - wget
+  - libsqlite3-dev # for. isucon12-qualify
 
 services:
   # この言語の参照実装のみ有効化する
