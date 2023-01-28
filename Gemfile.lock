@@ -42,7 +42,7 @@ DEPENDENCIES
   itamae
   itamae-plugin-recipe-datadog (>= 0.3.0)
   itamae-plugin-recipe-rust
-  net-ssh (>= 7.0.0.beta1)
+  net-ssh (>= 7.0.0)
   rake
 
 BUNDLED WITH
