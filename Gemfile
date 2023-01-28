@@ -10,7 +10,7 @@ gem "itamae-plugin-recipe-datadog", ">= 0.3.0"
 gem "itamae-plugin-recipe-rust"
 
 # c.f. https://github.com/net-ssh/net-ssh/issues/868
-gem "net-ssh", ">= 7.0.0.beta1"
+gem "net-ssh", ">= 7.0.0"
 
 gem "rake"
 
