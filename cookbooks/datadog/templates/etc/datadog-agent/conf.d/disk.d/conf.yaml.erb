@@ -115,10 +115,26 @@ instances:
     ##
     ## When conflicts arise, this will override `file_system_include`.
     #
-    # file_system_exclude:
-    #   - tmpfs$
-    #   - rootfs$
-    #   - autofs$
+    file_system_exclude:
+      - tmpfs$
+      - rootfs$
+      - autofs$
+
+      # dockerが入ってると下記のようなエラーが出るため除外
+      # Unable to get disk metrics for /run/docker/netns/e1da1506fbbe: [Errno 13] Permission denied: '/run/docker/netns/e1da1506fbbe'. You can exclude this mountpoint in the settings if it is invalid.
+      #
+      # c.f.
+      # * https://blog.bgbgbg.net/archives/4243
+      # * https://qiita.com/fabula/items/80c098808a359414c530
+      - overlay$
+      - proc$
+      - none$
+      - shm$
+      - none$
+      - shm$
+      - nsfs$
+      - netns$
+      - binfmt_misc$
 
     ## @param device_include - list of strings - optional
     ## Instruct the check to only collect from matching devices.
