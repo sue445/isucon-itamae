@@ -7,8 +7,7 @@ on:
     paths-ignore:
       - "**.md"
       - ".github/dependabot.yml"
-  # schedule:
-  #   - cron: "5 20 * * *" # JST 05:05
+    workflow_dispatch:
 
   pull_request:
     types:
