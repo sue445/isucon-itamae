@@ -24,6 +24,7 @@ end
   "libssl-dev",
   "libyaml-dev",
   "libreadline6-dev",
+  "rustc",
   "zlib1g-dev",
   "libncurses5-dev",
   "libffi-dev",
