@@ -66,14 +66,9 @@ return unless node.dig(:ruby, :version)
 ruby_install_path = "#{home_dir}/local/ruby/versions/#{node[:ruby][:version]}"
 ruby_binary = "#{ruby_install_path}/bin/ruby"
 
-install_options = ""
 check_command = ""
 
 if enabled_rust_yjit?
-  # c.f.
-  # * https://github.com/ruby/ruby/blob/504728307069d49994541c91769bc90444a4fce5/.github/workflows/yjit-ubuntu.yml#L45-L46
-  install_options << "RUBY_CONFIGURE_OPTS=--enable-yjit RUSTC='rustc +#{node[:ruby][:minimum_rust_version]}' PATH=/home/isucon/.cargo/bin:$PATH "
-
   # NOTE: Ruby 3.2.0以降でenabled_yjitが有効な場合ではYJITを有効にしてビルドしてるかもチェックする
   # c.f. https://koic.hatenablog.com/entry/building-rust-yjit
   check_command = "#{ruby_binary} --yjit -e 'p RubyVM::YJIT.enabled?' | grep 'true'"
@@ -88,7 +83,7 @@ if node[:ruby][:force_install]
   check_command = ""
 end
 
-execute "#{install_options}#{node[:xbuild][:path]}/ruby-install #{force_option} #{node[:ruby][:version]} #{ruby_install_path}" do
+execute "#{node[:xbuild][:path]}/ruby-install #{force_option} #{node[:ruby][:version]} #{ruby_install_path}" do
   user "isucon"
 
   unless check_command.empty?
