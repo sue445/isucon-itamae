@@ -5,6 +5,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem "dotenv"
+
 gem "itamae"
 gem "itamae-plugin-recipe-datadog", ">= 0.3.0"
 
@@ -12,6 +13,10 @@ gem "itamae-plugin-recipe-datadog", ">= 0.3.0"
 gem "net-ssh", ">= 7.0.0"
 
 gem "rake"
+
+# net-ssh requires the following gems for ed25519 support
+gem "ed25519", ">= 1.2", "< 2.0"
+gem "bcrypt_pbkdf", ">= 1.0", "< 2.0"
 
 group :test do
   # required for `itamae docker`
