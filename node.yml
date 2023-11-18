@@ -16,12 +16,6 @@ ruby:
   force_install: false
   # force_install: true
 
-# c.f. https://github.com/itamae-plugins/itamae-plugin-recipe-rust
-rust:
-  user: "isucon"
-  version: "1.58.1"
-  rustup_install_option: "--profile minimal"
-
 gem:
   # インストールするgemの一覧
   # 「gem_name: version」の形式で書く（バージョン省略時は最新をいれる）

@@ -7,7 +7,6 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gem "dotenv"
 gem "itamae"
 gem "itamae-plugin-recipe-datadog", ">= 0.3.0"
-gem "itamae-plugin-recipe-rust"
 
 # c.f. https://github.com/net-ssh/net-ssh/issues/868
 gem "net-ssh", ">= 7.0.0"
