@@ -37,7 +37,6 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.1"
           bundler-cache: true
 
       - name: Enable docker layer caching
@@ -95,7 +94,6 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.1"
           bundler-cache: true
 
       - run: .github/workflows/build_ruby.sh
