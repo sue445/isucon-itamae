@@ -10,8 +10,6 @@ ruby:
   # YJITを有効にしていビルドするかどうか(3.2.0-dev以降必須)
   enabled_yjit: true
 
-  minimum_rust_version: "1.58.1"
-
   # rubyをforce installするかどうか。（devを再ビルドする場合には有効化する）
   force_install: false
   # force_install: true
