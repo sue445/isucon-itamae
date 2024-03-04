@@ -1,3 +1,8 @@
+# サーバ起動後の最初の1回だけapt-get updateを実行するためにキャッシュを作る
+execute "apt-get update && touch /tmp/apt-get-update" do
+  not_if "ls /tmp/apt-get-update"
+end
+
 %w(
   sudo
 ).each do |name|
