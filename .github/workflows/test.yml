@@ -78,48 +78,48 @@ jobs:
           url: ${{ secrets.SLACK_WEBHOOK }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
-  build_ruby:
-    runs-on: ${{ matrix.runner }}
-
-    strategy:
-      fail-fast: false
-
-      matrix:
-        runner:
-          # - ubuntu-20.04
-          - ubuntu-22.04
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
-      - run: .github/workflows/build_ruby.sh
-        env:
-          XBUILD_RUBY_VERSION: ruby-dev
-
-      - name: Print build log when build is failed
-        run:  cat /tmp/*.log
-        if: "! success()"
-        continue-on-error: true
-
-      - name: Slack Notification (not success)
-        uses: lazy-actions/slatify@master
-        if: "! success()"
-        continue-on-error: true
-        with:
-          job_name: ${{ format('*ruby_build* ({0})', matrix.runner) }}
-          type: ${{ job.status }}
-          icon_emoji: ":octocat:"
-          url: ${{ secrets.SLACK_WEBHOOK }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+  # build_ruby:
+  #   runs-on: ${{ matrix.runner }}
+  #
+  #   strategy:
+  #     fail-fast: false
+  #
+  #     matrix:
+  #       runner:
+  #         # - ubuntu-20.04
+  #         - ubuntu-22.04
+  #
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         bundler-cache: true
+  #
+  #     - run: .github/workflows/build_ruby.sh
+  #       env:
+  #         XBUILD_RUBY_VERSION: ruby-dev
+  #
+  #     - name: Print build log when build is failed
+  #       run:  cat /tmp/*.log
+  #       if: "! success()"
+  #       continue-on-error: true
+  #
+  #     - name: Slack Notification (not success)
+  #       uses: lazy-actions/slatify@master
+  #       if: "! success()"
+  #       continue-on-error: true
+  #       with:
+  #         job_name: ${{ format('*ruby_build* ({0})', matrix.runner) }}
+  #         type: ${{ job.status }}
+  #         icon_emoji: ":octocat:"
+  #         url: ${{ secrets.SLACK_WEBHOOK }}
+  #         token: ${{ secrets.GITHUB_TOKEN }}
 
   notify:
     needs:
       - test
-      - build_ruby
+      # - build_ruby
 
     runs-on: ubuntu-latest
 
