@@ -96,7 +96,8 @@ jobs:
 
       - run: .github/workflows/build_ruby.sh
         env:
-          XBUILD_RUBY_VERSION: ruby-dev
+          # XBUILD_RUBY_VERSION: ruby-dev
+          XBUILD_RUBY_VERSION: 3.5.0-preview1
 
       - name: Print build log when build is failed
         run:  cat /tmp/*.log
