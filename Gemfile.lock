@@ -11,8 +11,9 @@ GEM
     ed25519 (1.4.0)
     excon (1.2.7)
       logger
-    hashie (5.0.0)
-    itamae (1.14.1)
+    hashie (5.1.0)
+      logger
+    itamae (1.14.2)
       ansi
       hashie
       schash (~> 0.1.0)
