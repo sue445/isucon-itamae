@@ -23,7 +23,7 @@ GEM
     logger (1.7.0)
     net-scp (4.2.0)
       net-ssh (>= 2.6.5, < 9.0.0)
-    net-ssh (8.0.4)
+    net-ssh (8.1.0)
       logger
       openssl (>= 3.2.0)
     net-telnet (0.2.0)
