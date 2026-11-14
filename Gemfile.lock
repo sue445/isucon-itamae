@@ -10,9 +10,9 @@ GEM
     dotenv (3.2.0)
     ed25519 (1.4.0)
     excon (1.10.0)
-    hashie (5.1.0)
+    hashie (6.0.0)
       logger
-    itamae (1.15.0)
+    itamae (1.16.0)
       ansi
       hashie
       schash (~> 0.1.0)
@@ -21,7 +21,7 @@ GEM
     itamae-plugin-recipe-datadog (0.3.2)
       itamae
     logger (1.7.0)
-    net-scp (4.2.0)
+    net-scp (4.2.1)
       net-ssh (>= 2.6.5, < 9.0.0)
     net-ssh (8.1.0)
       logger
@@ -31,7 +31,7 @@ GEM
     rake (13.4.2)
     schash (0.1.2)
     sfl (2.3)
-    specinfra (2.95.1)
+    specinfra (2.95.2)
       base64
       net-scp
       net-ssh (>= 2.7)
